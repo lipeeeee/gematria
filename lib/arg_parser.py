@@ -23,5 +23,7 @@ class ArgParser(object):
 
     def parse(self) -> Tuple:
         """Parse GEMATRIA args"""
-        return self.parser.parse_args()
+        parsed_namespace = self.parser.parse_args()
+
+        return (parsed_namespace.message)
 
