@@ -9,7 +9,7 @@ class Hashing(object):
     message: str
     b_message: bytes # bytes message
 
-    DEEPWEB_HASH: str
+    DEEPWEB_HASH: str # DEEPWEB_HASH FROM LP
 
     def __init__(self, message: str) -> None:
         self.message = message
@@ -38,5 +38,4 @@ if __name__ == "__main__":
     hashing = Hashing("teste")
     print(hashing.blake2b())
     print(hashing.is_deepweb_hash())
-
 

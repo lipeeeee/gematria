@@ -7,6 +7,7 @@
 import sys
 import logging, coloredlogs
 from arg_parser import ArgParser
+from analyse import Analyse
 
 logger = logging.getLogger(__name__)
 coloredlogs.install(level='DEBUG')
@@ -16,8 +17,13 @@ def main() -> int:
     
     # Parse args
     ap = ArgParser()
-    parser_args = ap.parse()
-    logger.info(parser_args)
+    parsed_args = ap.parse()
+    message = parsed_args
+
+    # Analyze
+    a = Analyse(message)
+    a.analyse()
+    
     return 0
 
 
