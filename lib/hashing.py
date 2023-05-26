@@ -3,6 +3,7 @@
 """
 
 import hashlib
+import whirlpool
 
 class Hashing(object):
 
@@ -29,6 +30,11 @@ class Hashing(object):
         h.update(self.b_message)
         return h.hexdigest()
 
+    def whirlpool(self) -> str:
+        """Whirlpool hashing"""
+        h = whirlpool.new(self.b_message)
+        return h.hexdigest()
+
     def is_deepweb_hash(self) -> bool:
         """Checks if message given earlier is deepweb hash"""
         return self.is_byte_deepweb_hash(self.b_message)
@@ -43,5 +49,7 @@ class Hashing(object):
 if __name__ == "__main__":
     hashing = Hashing("teste")
     print(hashing.sha512())
+    print("\n")
+    print(hashing.whirlpool())
     print(hashing.is_deepweb_hash())
 

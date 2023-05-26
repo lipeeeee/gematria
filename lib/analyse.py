@@ -27,6 +27,10 @@ class Analyse(object):
         b_hash = h.sha512()
         print(f"SHA512 -> {b_hash} | IS_DEEPWEB_HASH -> {h.is_byte_deepweb_hash(b_hash)}")
 
+        # whirlpool
+        b_hash = h.whirlpool()
+        print(f"WHIRLPOOL -> {b_hash} | IS_DEEPWEB_HASH -> {h.is_byte_deepweb_hash(b_hash)}")
+
     def analyse(self) -> None:
         """Main analyze function"""
         self.hash_analyse()
