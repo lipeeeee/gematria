@@ -2,7 +2,7 @@
     Hashing Script
 """
 
-from pyblake2 import blake2b
+import hashlib
 
 class Hashing(object):
 
@@ -19,7 +19,13 @@ class Hashing(object):
 
     def blake2b(self) -> str:
         """Blake2b Hashing"""
-        h = blake2b()
+        h = hashlib.blake2b(digest_size=64)
+        h.update(self.b_message)
+        return h.hexdigest()
+
+    def sha512(self) -> str:
+        """Sha512 Hashing"""
+        h = hashlib.sha512()
         h.update(self.b_message)
         return h.hexdigest()
 
@@ -36,6 +42,6 @@ class Hashing(object):
 
 if __name__ == "__main__":
     hashing = Hashing("teste")
-    print(hashing.blake2b())
+    print(hashing.sha512())
     print(hashing.is_deepweb_hash())
 

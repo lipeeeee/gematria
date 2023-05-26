@@ -16,11 +16,13 @@ def main() -> int:
     """GEMATRIA Entry Point"""
     
     # Parse args
+    logger.info("PARSING ARGS")
     ap = ArgParser()
     parsed_args = ap.parse()
     message = parsed_args
 
     # Analyze
+    logger.info("STARTING TO ANALYSE")
     a = Analyse(message)
     a.analyse()
     
