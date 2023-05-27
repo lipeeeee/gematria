@@ -21,7 +21,10 @@ class Analyse(object):
 
         # blake2b
         h.assert_hash_fn(h.blake2b, "BLAKE2B")
-        
+    
+        # blake512
+        h.assert_hash_fn(h.blake512, "BLAKE512")
+
         # sha512
         h.assert_hash_fn(h.sha512, "SHA512")
 
@@ -30,6 +33,12 @@ class Analyse(object):
 
         # whirlpool
         h.assert_hash_fn(h.whirlpool, "WHIRLPOOL")
+
+        # Skein512
+        h.assert_hash_fn(h.skein512, "SKEIN512")
+
+        # Tiger
+        h.assert_hash_fn(h.tiger, "TIGER")
 
     def analyse(self) -> None:
         """Main analyze function"""

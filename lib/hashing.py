@@ -5,6 +5,9 @@
 import hashlib
 import logging, coloredlogs
 import whirlpool
+import blake512 # https://github.com/tweqx/python-blake512
+import skein # https://pythonhosted.org/pyskein/skein.html
+from tigerhash import tiger
 
 logger = logging.getLogger(__name__)
 
@@ -26,10 +29,21 @@ class Hashing(object):
         h = hashlib.blake2b(digest_size=64)
         h.update(self.b_message)
         return h.hexdigest()
+    
+    def blake512(self) -> str:
+        """Blake1-512 Hashing"""
+        h = blake512.hash(self.message)
+        return h
 
     def sha512(self) -> str:
         """Sha512 Hashing"""
         h = hashlib.sha512()
+        h.update(self.b_message)
+        return h.hexdigest()
+
+    def sha3(self) -> str:
+        """SHA3 64 digest hashing"""
+        h = hashlib.sha3_512()
         h.update(self.b_message)
         return h.hexdigest()
 
@@ -38,11 +52,17 @@ class Hashing(object):
         h = whirlpool.new(self.b_message)
         return h.hexdigest()
 
-    def sha3(self) -> str:
-        """SHA3 64 digest hashing"""
-        h = hashlib.sha3_512()
+    def skein512(self) -> str:
+        """Skein512 Hashing"""
+        h = skein.skein512()
         h.update(self.b_message)
         return h.hexdigest()
+
+    def tiger(self) -> str:
+        """TigerHash Hashing"""
+        return "NOT WORKING ATM"
+        h = tiger.hash(self.message)
+        return h
 
     def assert_hash_fn(self, hash_fn, str_info) -> bool:
         """Assert if a hash function hashes to the DEEPWEB HASH"""
@@ -60,6 +80,7 @@ class Hashing(object):
 
     def is_deepweb_hash(self) -> bool:
         """Checks if message given earlier is deepweb hash"""
+        # TODO goes through every hashing algorithm and check if it is
         return self.is_byte_deepweb_hash(self.b_message)
 
     def is_byte_deepweb_hash(self, b_string: bytes) -> bool:
