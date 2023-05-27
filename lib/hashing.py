@@ -3,7 +3,10 @@
 """
 
 import hashlib
+import logging, coloredlogs
 import whirlpool
+
+logger = logging.getLogger(__name__)
 
 class Hashing(object):
 
@@ -34,6 +37,26 @@ class Hashing(object):
         """Whirlpool hashing"""
         h = whirlpool.new(self.b_message)
         return h.hexdigest()
+
+    def sha3(self) -> str:
+        """SHA3 64 digest hashing"""
+        h = hashlib.sha3_512()
+        h.update(self.b_message)
+        return h.hexdigest()
+
+    def assert_hash_fn(self, hash_fn, str_info) -> bool:
+        """Assert if a hash function hashes to the DEEPWEB HASH"""
+        h = hash_fn()
+        is_deepweb_hash = self.is_byte_deepweb_hash(h)
+        print(f"{str_info} -> {h} | IS_DEEPWEB_HASH() -> {is_deepweb_hash}")
+        
+        # Deepweb hash alert
+        if is_deepweb_hash:
+            import sys
+            log.critical(f"FOUND DEEPWEB HASH IN {self.message} ENCODED IN {str_info}") 
+            sys.exit(0)
+        
+        return is_deepweb_hash
 
     def is_deepweb_hash(self) -> bool:
         """Checks if message given earlier is deepweb hash"""

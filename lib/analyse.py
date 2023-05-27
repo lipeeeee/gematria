@@ -20,16 +20,16 @@ class Analyse(object):
         h = Hashing(self.message)
 
         # blake2b
-        b_hash = h.blake2b()
-        print(f"Blake2b -> {b_hash} | IS_DEEPWEB_HASH -> {h.is_byte_deepweb_hash(b_hash)}")
-    
+        h.assert_hash_fn(h.blake2b, "BLAKE2B")
+        
         # sha512
-        b_hash = h.sha512()
-        print(f"SHA512 -> {b_hash} | IS_DEEPWEB_HASH -> {h.is_byte_deepweb_hash(b_hash)}")
+        h.assert_hash_fn(h.sha512, "SHA512")
+
+        # sha3
+        h.assert_hash_fn(h.sha3, "SHA3")
 
         # whirlpool
-        b_hash = h.whirlpool()
-        print(f"WHIRLPOOL -> {b_hash} | IS_DEEPWEB_HASH -> {h.is_byte_deepweb_hash(b_hash)}")
+        h.assert_hash_fn(h.whirlpool, "WHIRLPOOL")
 
     def analyse(self) -> None:
         """Main analyze function"""
