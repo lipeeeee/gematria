@@ -21,7 +21,7 @@ class Writer(object):
     # Full pat (directory_path + / + file_path)
     full_path: str
 
-    def __init__(self, message:str, clear = True) -> None:
+    def __init__(self, message:str) -> None:
         self.directory_path = "outputs/"
         self.file_path = f"{message}.txt"
         self.full_path = os.path.join(self.directory_path, self.file_path)
@@ -30,8 +30,7 @@ class Writer(object):
             os.makedirs(self.directory_path)
 
         # if already exists clear contents
-        with open(self.full_path, 'w' if clear else 'a') as f:
-            f.divisor(f)
+        with open(self.full_path, 'w') as f:
             f.write(f"COMPUTING \"{message}\" STARTED AT {str(datetime.now())}\n")
             self.divisor(f)
     
