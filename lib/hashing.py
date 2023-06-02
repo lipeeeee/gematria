@@ -90,6 +90,37 @@ class Hashing(object):
         
         return is_deepweb_hash
 
+    def str_check(self) -> bool:
+        """For every hash function:
+            1. Hash string
+            2. Compare to DWH
+        """
+        # Logging
+        output_str = f"HASHING \"{self.message}\"..."
+        logger.info(output_str)
+        self.writer.title(output_str)
+
+        # blake2b
+        self.assert_hash_fn(self.blake2b, "BLAKE2B")
+    
+        # blake512
+        self.assert_hash_fn(self.blake512, "BLAKE512")
+
+        # sha512
+        self.assert_hash_fn(self.sha512, "SHA512")
+
+        # sha3
+        self.assert_hash_fn(self.sha3, "SHA3")
+
+        # whirlpool
+        self.assert_hash_fn(self.whirlpool, "WHIRLPOOL")
+
+        # Skein512
+        self.assert_hash_fn(self.skein512, "SKEIN512")
+
+        # Tiger
+        self.assert_hash_fn(self.tiger, "TIGER")
+
     def is_deepweb_hash(self) -> bool:
         """Checks if message given earlier is deepweb hash"""
         # TODO goes through every hashing algorithm and check if it is
