@@ -9,6 +9,7 @@ import blake512 # https://github.com/tweqx/python-blake512
 import skein # https://pythonhosted.org/pyskein/skein.html
 from tigerhash import tiger
 from writer import Writer
+from utils import hamming_distance
 
 logger = logging.getLogger(__name__)
 
@@ -21,6 +22,7 @@ class Hashing(object):
 
     # DEEPWEB HASH FROM LP
     DEEPWEB_HASH: str
+    b_DEEPWEB_HASH: str
 
     # Custom file writer
     writer: Writer
@@ -30,7 +32,8 @@ class Hashing(object):
         self.b_message = self.message.encode('UTF-8')
         self.writer = writer
 
-        self.DEEPWEB_HASH = "36367763ab73783c7af284446c59466b4cd653239a311cb7116d4618dee09a8425893dc7500b464fdaf1672d7bef5e891c6e2274568926a49fb4f45132c2a8b4".encode('UTF-8')
+        self.DEEPWEB_HASH = "36367763ab73783c7af284446c59466b4cd653239a311cb7116d4618dee09a8425893dc7500b464fdaf1672d7bef5e891c6e2274568926a49fb4f45132c2a8b4"
+        self.b_DEEPWEB_HASH = self.DEEPWEB_HASH.encode('UTF-8') # Byte version
 
     def blake2b(self) -> str:
         """Blake2b Hashing"""
@@ -76,8 +79,9 @@ class Hashing(object):
         """Assert if a hash function hashes to the DEEPWEB HASH"""
         h = hash_fn()
         is_deepweb_hash = self.is_byte_deepweb_hash(h)
-        
-        output_str = f"{str_info} -> {h} | IS_DEEPWEB_HASH() -> {is_deepweb_hash}"
+        distance = hamming_distance(str(h), str(self.DEEPWEB_HASH))
+
+        output_str = f"{str_info} -> {h} | IS_DEEPWEB_HASH() -> {is_deepweb_hash} >> d:{distance}"
         print(output_str)
         if True: # False if u dont want file printing
             self.writer.write(output_str)
@@ -121,17 +125,12 @@ class Hashing(object):
         # Tiger
         self.assert_hash_fn(self.tiger, "TIGER")
 
-    def is_deepweb_hash(self) -> bool:
-        """Checks if message given earlier is deepweb hash"""
-        # TODO goes through every hashing algorithm and check if it is
-        return self.is_byte_deepweb_hash(self.b_message)
-
     def is_byte_deepweb_hash(self, b_string: bytes) -> bool:
         """Checks if given byte str is the deepweb hash from LP"""
         if isinstance(b_string, str):
             b_string = b_string.encode('UTF-8')
 
-        return b_string == self.DEEPWEB_HASH
+        return b_string == self.b_DEEPWEB_HASH
 
 if __name__ == "__main__":
     hashing = Hashing("teste")

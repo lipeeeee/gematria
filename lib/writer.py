@@ -41,7 +41,7 @@ class Writer(object):
     
     def divisor(self, f) -> None:
         """Puts divisor in a file obj"""
-        f.write("-" * 512 + "\n")
+        f.write("-" * 252 + "\n")
 
     def title(self, string:str) -> None:
         """Prints tilte-like string in txt file"""
@@ -57,3 +57,4 @@ class Writer(object):
     def file_exists(self) -> bool:
         """Checks if file already exists"""
         return os.path.exists(self.full_path)
+

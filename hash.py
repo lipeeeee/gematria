@@ -6,6 +6,7 @@
 """
 
 import sys
+import lib
 from __future__ import annotations
 
 def main() -> int:
