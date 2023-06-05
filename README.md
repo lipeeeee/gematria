@@ -21,4 +21,14 @@ The full hash is: (512 bits)
 It indicates that there is a page on the deep web, most likely a **onion v2 URL**, which when hashed *(The hashing algorithm is not known, but potential candidates are SHA-512, BLAKE-512 or BLAKE2b)* produces the full hash.
 The hash can also be a unique file identifier for deep web applications such as Freenet, GnuNET or P2P file sharing systems, which use Distributed Hash Tables.
 
+## Hashing Script
+I made a script that hashes a given string into various *512 bit* hashing algorithms:
+- Blake2b
+- Blake512
+- Sha512
+- Sha3
+- Whirlpool
+- Skein512
+- Tiger
+
 # TODO
