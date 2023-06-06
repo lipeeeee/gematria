@@ -2,7 +2,7 @@
 3301 Cryptography Tool
 
 # Hashing
-In [Page 56](https://static.wikia.nocookie.net/uncovering-cicada/images/2/2f/56.jpg/revision/latest/scale-to-width-down/1000?cb=20150109104852) of LP a message was deciphered.
+In [Page 56](https://static.wikia.nocookie.net/uncovering-cicada/images/2/2f/56.jpg) of LP a message was deciphered.
 > Within the deep web, there exists a page that hashes to :
 > ```
 > 36367763ab73783c7af284446c
