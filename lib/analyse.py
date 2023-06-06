@@ -3,8 +3,8 @@
 """
 
 from __future__ import annotations
-from hashing import Hashing
-from writer import Writer
+from .hashing import Hashing
+from .writer import Writer
 import logging, coloredlogs
 
 logger = logging.getLogger(__name__)

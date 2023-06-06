@@ -6,16 +6,12 @@
 """
 
 import sys
-import lib
+import lib as gematria
 from __future__ import annotations
 
 def main() -> int:
     """Hashing entry point"""
     return 0
-
-def custom_parse() -> Tuple:
-    """."""
-    ...
 
 if __name__ == "__main__":
     sys.exit(main())

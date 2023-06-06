@@ -7,7 +7,7 @@ from __future__ import annotations
 import math
 
 class Gematria(object):
-	"""GEMATRIA class"""
+    """GEMATRIA class"""
 
     def __init__(self):
         self.gematriaprimus = (

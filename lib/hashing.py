@@ -7,9 +7,9 @@ import logging, coloredlogs
 import whirlpool
 import blake512 # https://github.com/tweqx/python-blake512
 import skein # https://pythonhosted.org/pyskein/skein.html
-from tigerhash import tiger
-from writer import Writer
-from utils import hamming_distance
+from .tigerhash import tiger
+from .writer import Writer
+from .utils import hamming_distance
 
 logger = logging.getLogger(__name__)
 
