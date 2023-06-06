@@ -8,7 +8,6 @@ import logging
 import whirlpool
 import blake512 # https://github.com/tweqx/python-blake512
 import skein # https://pythonhosted.org/pyskein/skein.html
-from tigerhash import tiger
 from writer import Writer
 from utils import hamming_distance
 
@@ -128,5 +127,4 @@ class Hashing:
         if isinstance(b_string, str):
             b_string = b_string.encode('UTF-8')
 
-        return b_string == self.BYTE_DEEPWEB_HASH
-
+        return b_string == BYTE_DEEPWEB_HASH
