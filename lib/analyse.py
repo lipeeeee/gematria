@@ -3,9 +3,9 @@
 """
 
 from __future__ import annotations
-from .hashing import Hashing
-from .writer import Writer
-import logging, coloredlogs
+from hashing import Hashing
+from writer import Writer
+import logging
 
 logger = logging.getLogger(__name__)
 

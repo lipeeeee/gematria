@@ -5,7 +5,8 @@
 """
 
 import sys
-import logging, coloredlogs
+import logging
+import coloredlogs
 from arg_parser import ArgParser
 from analyse import Analyse
 from writer import Writer
