@@ -21,12 +21,12 @@ class ArgParser(object):
         # Message to be encoded/decoded/analyzed
         self.parser.add_argument("message")
         
-        # Output flag
-        self.parser.add_argument("--output", action=argparse.BooleanOptionalAction, default=True)
+        # Input file for hashing
+        self.parser.add_argument("--input", action='store', default=None)
 
     def parse(self) -> Tuple:
         """Parse GEMATRIA args"""
         parsed_namespace = self.parser.parse_args()
 
-        return (parsed_namespace.message, parsed_namespace.output)
+        return (parsed_namespace.message, parsed_namespace.input)
 

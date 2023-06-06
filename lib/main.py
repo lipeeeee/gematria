@@ -22,7 +22,7 @@ def main() -> int:
     parsed_args = ap.parse()
     
     message = parsed_args[0]
-    output_to_file = parsed_args[1]
+    input_ = parsed_args[1]
 
     # File Writer
     writer = Writer(message)

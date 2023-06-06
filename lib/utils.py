@@ -2,6 +2,8 @@
     Utility functions for Gematria
 """
 
+from __future__ import annotations
+import os
 import logging, coloredlogs
 logger = logging.getLogger(__name__)
 
@@ -22,3 +24,15 @@ def hamming_distance(string1: str, string2: str) -> int:
 
     return distance
 
+def file_into_array(file_path: str) -> List:
+    """Read file contents into an array seperating by EOL"""
+    content = []
+    
+    # Read content
+    with open(file_path) as f:
+        content = f.readlines()
+    
+    # Remove "\n" from content
+    formated_content = [c[:-1] for c in content]
+
+    return formated_content

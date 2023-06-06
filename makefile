@@ -9,3 +9,5 @@ example_build:
 arg_build:
 	python lib/main.py $(m)
 
+hash_build:
+	python hash.py . --input inputs/5.txt
