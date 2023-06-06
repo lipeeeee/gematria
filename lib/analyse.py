@@ -3,18 +3,18 @@
 """
 
 from __future__ import annotations
+import logging
 from hashing import Hashing
 from writer import Writer
-import logging
 
 logger = logging.getLogger(__name__)
 
-class Analyse(object):
+class Analyse:
     """Class that will take a message and do processing on the string"""
 
     # String to be processed
     message: str
-    
+
     # Custom file writer
     writer: Writer
 
@@ -28,3 +28,6 @@ class Analyse(object):
         # Hash and compare string into all implemented hash fn's
         self.hasher.str_check()
 
+    def sum(self) -> int:
+        """."""
+        return 1+1

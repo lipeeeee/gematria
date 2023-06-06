@@ -5,7 +5,7 @@
 import os
 from datetime import datetime
 
-class Writer(object):
+class Writer:
     """
         Writer class for file handling and writting
         It will write to a file with the name of the message being
@@ -25,30 +25,30 @@ class Writer(object):
         self.directory_path = "outputs/"
         self.file_path = f"{message}.txt"
         self.full_path = os.path.join(self.directory_path, self.file_path)
-        
+
         if not self.directory_exists():
             os.makedirs(self.directory_path)
 
         # if already exists clear contents
-        with open(self.full_path, 'w') as f:
-            f.write(f"COMPUTING \"{message}\" STARTED AT {str(datetime.now())}\n")
-            self.divisor(f)
-    
+        with open(self.full_path, 'w', encoding='UTF-8') as file_obj:
+            file_obj.write(f"COMPUTING \"{message}\" STARTED AT {str(datetime.now())}\n")
+            self.divisor(file_obj)
+
     def write(self, string: str) -> None:
         """Writes into file"""
-        with open(self.full_path, 'a') as f:
-            f.write(f"{string} >>> {str(datetime.now())}\n")
-    
-    def divisor(self, f) -> None:
+        with open(self.full_path, 'a', encoding='UTF-8') as file_obj:
+            file_obj.write(f"{string} >>> {str(datetime.now())}\n")
+
+    def divisor(self, file_obj) -> None:
         """Puts divisor in a file obj"""
-        f.write("-" * 252 + "\n")
+        file_obj.write("-" * 252 + "\n")
 
     def title(self, string:str) -> None:
         """Prints tilte-like string in txt file"""
-        with open(self.full_path, 'a') as f:
-            self.divisor(f)
-            f.write(f"   {string} >>> {str(datetime.now())}\n")
-            self.divisor(f)
+        with open(self.full_path, 'a', encoding='UTF-8') as file_obj:
+            self.divisor(file_obj)
+            file_obj.write(f"   {string} >>> {str(datetime.now())}\n")
+            self.divisor(file_obj)
 
     def directory_exists(self) -> bool:
         """Checks if output files directory exists"""
@@ -57,4 +57,3 @@ class Writer(object):
     def file_exists(self) -> bool:
         """Checks if file already exists"""
         return os.path.exists(self.full_path)
-
