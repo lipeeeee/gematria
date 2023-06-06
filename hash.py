@@ -28,20 +28,23 @@ def main() -> int:
         logger.critical("MUST PROVIDE A FILE CONTAINING STRINGS TO HASH(--input file.txt)")
         return -1
 
+    # Writer with title of the file we are hashing contents
+    title = gematria.utils.get_file_name(file_input)
+    writer = gematria.Writer(message=title)
+
     # Read all file content
     content = gematria.utils.file_into_array(file_input)
     
     # Hash all
-    hash_all(content)
+    hash_all(content, writer)
 
     return 0
 
-def hash_all(content: List) -> None:
+def hash_all(content: List, writer: gematria.Writer) -> None:
     """Hash compares every line in content"""
     
     for string_hash in content:
         # Create new hashing and writer object
-        writer = gematria.Writer(message=string_hash)
         hasher = gematria.Hashing(message=string_hash, writer=writer)
 
         # Hash against all

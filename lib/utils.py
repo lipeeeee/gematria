@@ -36,3 +36,8 @@ def file_into_array(file_path: str) -> List:
     formated_content = [c[:-1] for c in content]
 
     return formated_content
+
+def get_file_name(file_path: str) -> str:
+    """Strip full path and file extensions from full_path str"""
+    sp = file_path.split("/")
+    return sp[len(sp) - 1][:-4]
