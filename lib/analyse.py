@@ -28,6 +28,10 @@ class Analyse:
         # Hash and compare string into all implemented hash fn's
         self.hasher.str_check()
 
+	def gematria(self) -> None:
+		"""."""
+		pass
+
     def sum(self) -> int:
         """."""
         return 1+1

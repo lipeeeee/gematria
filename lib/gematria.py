@@ -5,7 +5,7 @@
 import math
 
 class Gematria:
-     """Gematria Alphabet"""
+	"""Gematria Alphabet"""
 
 	def __init__(self) -> None:
 		"""https://cdn.discordapp.com/attachments/787683114914545684/787683150418542632/GematrriaPrimus.jpg"""       
@@ -165,7 +165,7 @@ class Cipher:
 		"""Sum of Gematria in self.text lines"""
 		return [Runes(w).gematria_sum() for w in self.text.splitlines()]
 
-    def to_index(self):
+	def to_index(self):
 		"""Get index of X in Gematria alphabet"""
 		return [self.alpha.index(i.upper()) for i in self.text.upper()]
 
@@ -242,7 +242,7 @@ if __name__ == "__main__":
 	r = Runes("ᚱ ᛝᚱᚪᛗᚹ ᛄᛁᚻᛖᛁᛡᛁ ᛗᚫᚣᚹ ᛠᚪᚫᚾ")
 	print(r)
 	print(r.gematria_sum())
-	print(r.to_latin())
+	print(r.to_latin().gematria_sum())
 	print(r.gematria_sum())
 	print("--"*12)
 
