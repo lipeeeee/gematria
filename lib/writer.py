@@ -32,7 +32,7 @@ class Writer:
         # if already exists clear contents
         with open(self.full_path, 'w', encoding='UTF-8') as file_obj:
             file_obj.write(f"COMPUTING \"{message}\" STARTED AT {str(datetime.now())}\n")
-            self.divisor(file_obj)
+            # self.divisor(file_obj)
 
     def write(self, string: str) -> None:
         """Writes into file"""
