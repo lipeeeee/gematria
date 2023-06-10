@@ -45,3 +45,4 @@ Where:
 `DISTANCE` Is the Hamming distance between `HEX-DIGEST` and *DWH*(0 means they are the same, 128 complete opposite)
 
 # TODO
+FIND A WAY TO DO WORDS OF STRING GEM SUM IN AN EFFICIENT WAY
