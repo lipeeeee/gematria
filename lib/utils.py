@@ -68,6 +68,7 @@ def reverse_int(num: int) -> int:
 
 def is_prime(num: int) -> bool:
 	"""is a number prime"""
+	print(type(num), num)
 	assert isinstance(num, int)
 
 	# this flag maintains status whether the n is prime or not
@@ -89,8 +90,6 @@ def is_prime(num: int) -> bool:
 
 def get_prime_and_emirp(number: int) -> tuple:
 	"""Get's the result of prime and emirp of a number"""
-	assert isinstance(number, int)
-	
 	# Number Prime
 	number_prime = is_prime(number)
 	

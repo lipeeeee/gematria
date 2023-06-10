@@ -4,7 +4,7 @@
 
 # Example on how to run gematria:
 example_build:
-	python lib/main.py testeteste__cicada
+	python lib/main.py 'testeteste_cicada a a'
 
 arg_build:
 	python lib/main.py $(m)
