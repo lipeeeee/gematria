@@ -29,4 +29,3 @@ class ArgParser(object):
         parsed_namespace = self.parser.parse_args()
 
         return (parsed_namespace.message, parsed_namespace.input)
-
