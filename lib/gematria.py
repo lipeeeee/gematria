@@ -169,6 +169,10 @@ class Cipher:
 		"""Get index of X in Gematria alphabet"""
 		return [self.alpha.index(i.upper()) for i in self.text.upper()]
 
+	def get_words(self):
+		"""Gets words of current text"""
+		return self.text.split()	
+
 	def running_shift(self, key, interrupts="", skip_indices=[], decrypt=True):
 		"""."""
 		if not key:

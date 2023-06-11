@@ -46,10 +46,14 @@ class Analyse:
 		# 1. Message
 		message_sum = runic_message.gematria_sum()
 		message_prime, message_emirp = utils.get_prime_and_emirp(message_sum)
+		self.print_sum_prime_status(runic_message.text, message_sum, message_prime, message_emirp)
 
 		# 2. Words
+		words_list = runic_message.get_words()
 		words_sum = runic_message.gematria_sum_words()
-		words_prime, words_emirp = utils.get_prime_and_emirp(words_sum)
+		for i in range(len(words_list)):
+			words_prime, words_emirp = utils.get_prime_and_emirp(words_sum[i])
+			self.print_sum_prime_status(words_list[i], words_sum[i], words_prime, words_emirp)
 
 		# 3. Lines
 		lines_sum = runic_message.gematria_sum_lines()
@@ -80,6 +84,16 @@ class Analyse:
 		title_str = "GEMATRIA PROCESSING...\n\tRUNIC: " + str(runic_version) + "\n\tLATIN: " + str(latin_version)		
 		logger.info(title_str)
 		self.writer.title(title_str)
-		
+		print("") # Separtor from title to specific processing
+
 		# Gematria sum & Prime
 		self.gematria_sum_prime(self.message)
+
+	def print_sum_prime_status(self, target: str, gem_sum: int, prime: bool, emirp: bool) -> None:
+		"""Helper function to print prime status"""
+		#output_str = f"{target} >>>\n"
+		output_str = self.writer.chapter(target) + "\n"
+		output_str += f"\tGEMATIRA SUM: {gem_sum}\n"
+		output_str += f"\tIS_PRIME() = {prime} >>> IS_EMIRP() = {emirp}\n"
+
+		print(output_str)

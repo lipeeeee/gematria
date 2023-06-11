@@ -68,7 +68,6 @@ def reverse_int(num: int) -> int:
 
 def is_prime(num: int) -> bool:
 	"""is a number prime"""
-	print(type(num), num)
 	assert isinstance(num, int)
 
 	# this flag maintains status whether the n is prime or not
