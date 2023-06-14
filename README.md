@@ -1,6 +1,97 @@
 # gematria
 3301 Cryptography Tool
 
+# Gematria Primus
+Gematria Primus, found during the 2013 puzzle, is an alphabet with 29 runes, each with an English equivalent and a numerical value, The numerical values are consecutive prime numbers in ascending order. The runes themselves are the focal point of the current step, Liber Primus.
+
+3301's inclusion of a value for each rune allows for a function to assign a number to any word. This is simply adding the value of each rune - what we call gematria sum. 3301 has used this gematria sum previously, notably in the count command from the onion terminal and with certain phrases throughout the puzzles. Certain phrases include:
+
+- The Instar Emergence: 761 (reflected in the song's file name of 761.mp3, and in the song's length of 167 seconds)
+- Patience is a virtue: 761
+- Interconnectedness: 772 (not prime, but 277 is, which is the song's length in seconds)
+- one of the solved pages contains words in runes within a square of numbers; gematria summing the words completes a magic square
+- more sentences than you would expect in the solved pages gematria sum to prime numbers
+
+![image](https://github.com/lipeeeee/gematria/assets/62669782/6ad1d502-0076-4fd9-9ca1-ea7b240cdd72)
+
+# Gematria Primus Script
+By running gematria, it will automatically process the sums and calculte primes and [emirps](https://en.wikipedia.org/wiki/Emirp) of the Gematria Primus values... Processing order:
+1. Whole string
+2. Each word in string
+3. Each line in string
+4. Atbash string
+5. Each word in atbash string
+6. Each line in atbash string
+
+Example of output:
+```shell
+$ python lib/main.py 'Any Message'
+```
+```
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   GEMATRIA PROCESSING...
+	RUNIC: ᚪᚾᚣ ᛗᛖᛋᛋᚪᚷᛖ
+	LATIN: AENY MESSAGE >>> 2023-06-14 11:09:36.018235
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ᚪᚾᚣ ᛗᛖᛋᛋᚪᚷᛖ
+---------------
+	GEMATIRA SUM: 654
+	IS_PRIME() = False >>> IS_EMIRP() = False
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   PROCESSING EACH WORD IN "ᚪᚾᚣ ᛗᛖᛋᛋᚪᚷᛖ" >>> 2023-06-14 11:09:36.027583
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ᚪᚾᚣ
+-------
+	GEMATIRA SUM: 229
+	IS_PRIME() = True >>> IS_EMIRP() = False
+
+ᛗᛖᛋᛋᚪᚷᛖ
+-----------
+	GEMATIRA SUM: 425
+	IS_PRIME() = False >>> IS_EMIRP() = False
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   PROCESSING EACH LINE IN "ᚪᚾᚣ ᛗᛖᛋᛋᚪᚷᛖ" >>> 2023-06-14 11:09:36.042432
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ᚪᚾᚣ ᛗᛖᛋᛋᚪᚷᛖ
+---------------
+	GEMATIRA SUM: 654
+	IS_PRIME() = False >>> IS_EMIRP() = False
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   ATBASH >> GEMATRIA PROCESSING...
+	RUNIC: ᚱᛗᚦ ᚾᛁᛈᛈᚱᛟᛁ
+	LATIN: ZVMB NVHHZTV >>> 2023-06-14 11:09:36.052845
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ᚱᛗᚦ ᚾᛁᛈᛈᚱᛟᛁ
+---------------
+	GEMATIRA SUM: 358
+	IS_PRIME() = False >>> IS_EMIRP() = True
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   PROCESSING EACH WORD IN "ᚱᛗᚦ ᚾᛁᛈᛈᚱᛟᛁ" >>> 2023-06-14 11:09:36.062569
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ᚱᛗᚦ
+-------
+	GEMATIRA SUM: 87
+	IS_PRIME() = False >>> IS_EMIRP() = False
+
+ᚾᛁᛈᛈᚱᛟᛁ
+-----------
+	GEMATIRA SUM: 271
+	IS_PRIME() = True >>> IS_EMIRP() = False
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   PROCESSING EACH LINE IN "ᚱᛗᚦ ᚾᛁᛈᛈᚱᛟᛁ" >>> 2023-06-14 11:09:36.077203
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ᚱᛗᚦ ᚾᛁᛈᛈᚱᛟᛁ
+---------------
+	GEMATIRA SUM: 358
+	IS_PRIME() = False >>> IS_EMIRP() = True
+```
+
+
 # Hashing
 In [Page 56](https://static.wikia.nocookie.net/uncovering-cicada/images/2/2f/56.jpg) of LP a message was deciphered.
 > Within the deep web, there exists a page that hashes to :
@@ -43,6 +134,3 @@ Where:
 `HASH COMPARE` Is the flag checking if found the *DWH*.
 
 `DISTANCE` Is the Hamming distance between `HEX-DIGEST` and *DWH*(0 means they are the same, 128 complete opposite)
-
-# TODO
-FIND A WAY TO DO WORDS OF STRING GEM SUM IN AN EFFICIENT WAY
