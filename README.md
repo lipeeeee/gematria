@@ -1,4 +1,9 @@
+<div align="center">
+	
 # gematria
+	
+</div>
+
 gematria is an efficient criptography tool to aid in the decyphering of cicada 3301's [Liber Primus](https://uncovering-cicada.fandom.com/wiki/Liber_Primus)(LP), It's purpose is to process a given string and analyse it into various hash functions and gematria sums. It can process hashes and gematria sums almost instantly.
 
 ![image](https://github.com/lipeeeee/gematria/assets/62669782/d42250b9-4c13-4442-b82d-6b1bdd6a0182)
