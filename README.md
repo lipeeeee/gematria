@@ -1,6 +1,9 @@
 # gematria
-gematria is a criptography tool to aid in the decyphering of [Liber Primus](https://uncovering-cicada.fandom.com/wiki/Liber_Primus)(LP), It's purpose is to process a given string and analyse it into various hash functions and gematria sums.
+gematria is an efficient criptography tool to aid in the decyphering of cicada 3301's [Liber Primus](https://uncovering-cicada.fandom.com/wiki/Liber_Primus)(LP), It's purpose is to process a given string and analyse it into various hash functions and gematria sums. It can process hashes and gematria sums almost instantly.
+
 ![image](https://github.com/lipeeeee/gematria/assets/62669782/d42250b9-4c13-4442-b82d-6b1bdd6a0182)
+
+***After processing, gematria will create a file with the results in ./outputs/{string}.txt***
 
 # Gematria Primus
 Gematria Primus, found during the 2013 puzzle, is an alphabet with 29 runes, each with an English equivalent and a numerical value, The numerical values are consecutive prime numbers in ascending order. The runes themselves are the focal point of the current step, Liber Primus.
