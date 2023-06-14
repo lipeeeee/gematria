@@ -1,5 +1,6 @@
 # gematria
-3301 Cryptography Tool
+gematria is a criptography tool to aid in the decyphering of [Liber Primus](https://uncovering-cicada.fandom.com/wiki/Liber_Primus)(LP), It's purpose is to process a given string and analyse it into various hash functions and gematria sums.
+![image](https://github.com/lipeeeee/gematria/assets/62669782/d42250b9-4c13-4442-b82d-6b1bdd6a0182)
 
 # Gematria Primus
 Gematria Primus, found during the 2013 puzzle, is an alphabet with 29 runes, each with an English equivalent and a numerical value, The numerical values are consecutive prime numbers in ascending order. The runes themselves are the focal point of the current step, Liber Primus.
@@ -14,7 +15,7 @@ Gematria Primus, found during the 2013 puzzle, is an alphabet with 29 runes, eac
 
 ![image](https://github.com/lipeeeee/gematria/assets/62669782/6ad1d502-0076-4fd9-9ca1-ea7b240cdd72)
 
-# Gematria Primus Script
+## Gematria Primus Script
 By running gematria, it will automatically process the sums and calculte primes and [emirps](https://en.wikipedia.org/wiki/Emirp) of the Gematria Primus values... Processing order:
 1. Whole string
 2. Each word in string
@@ -112,6 +113,7 @@ The hash can also be a unique file identifier for deep web applications such as 
 
 ## Hashing Check Script
 I made a script that hashes a given string into various *512 bit* hashing algorithms and then compares the hex digest into the *DWH*.
+*This script can be given a .txt file and it will go through every line and hash it*
 
 An example of Gematria hashing "xmh57jrknzkhv6y3ls3ubitzfqnkrwxhopf5aygthi7d6rplyvk3noyd.onion":
 ```shell
@@ -134,3 +136,5 @@ Where:
 `HASH COMPARE` Is the flag checking if found the *DWH*.
 
 `DISTANCE` Is the Hamming distance between `HEX-DIGEST` and *DWH*(0 means they are the same, 128 complete opposite)
+
+*a tool by lipeeeee*
